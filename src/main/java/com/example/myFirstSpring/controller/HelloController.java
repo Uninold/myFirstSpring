@@ -15,12 +15,12 @@ public class HelloController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/hello")
-    public String sayHello(
-      @RequestParam(name = "name") String name
-    ){
-        return "HELLO "+name+"!!!!";
-    }
+//    @RequestMapping(value = "/sayhello")
+//    public String sayHello(
+//      @RequestParam(name = "firstname") String name
+//    ){
+//        return "HELLO "+name+"!!!!";
+//    }
     @RequestMapping(value = "/hello",
             method = RequestMethod.POST,
     consumes = MediaType.APPLICATION_JSON_VALUE)

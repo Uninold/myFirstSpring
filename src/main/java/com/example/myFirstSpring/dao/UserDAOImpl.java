@@ -22,13 +22,14 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void saveUser(User user) {
     Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.save(user);
+        currentSession.saveOrUpdate(user);
     }
 
     @Override
     public List<User> getUser() {
         Session currentSeassion = sessionFactory.getCurrentSession();
-        Query query = currentSeassion.createQuery("from User");
+        String sql = "from User";
+        Query query = currentSeassion.createQuery(sql);
         List<User> users = query.list();
         return users;
     }

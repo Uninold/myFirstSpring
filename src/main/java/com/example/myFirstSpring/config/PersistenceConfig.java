@@ -30,7 +30,7 @@ public class PersistenceConfig {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan(
-                new String[] { "com.example.myFirstString.entity" });
+                new String[] { "com.example.myFirstSpring.entity" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
