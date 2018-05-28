@@ -24,6 +24,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public boolean login(User user) {
+        return userDAO.loginCustomer(user);
+    }
+    @Override
     public List<User> getUser() {
 
         return userDAO.getUser();

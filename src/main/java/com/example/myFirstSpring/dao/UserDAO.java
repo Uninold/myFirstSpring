@@ -10,5 +10,6 @@ import java.util.List;
 public interface UserDAO {
     public void saveUser(User user);
     public List<User> getUser();
+    public boolean loginCustomer(User user);
 
 }

@@ -33,6 +33,16 @@ public class UserDAOImpl implements UserDAO {
         List<User> users = query.list();
         return users;
     }
-
+    @Override
+    public boolean loginCustomer(User customer) {
+        Session session = sessionFactory.getCurrentSession();
+        Query theQuery = session.createQuery("from User user where user.username =:username and user.password =:password");
+        theQuery.setString("username",customer.getUsername());
+        theQuery.setString("password",customer.getPassword());
+        if(theQuery.list().isEmpty()){
+            return false;
+        }
+        return true;
+    }
 
 }
