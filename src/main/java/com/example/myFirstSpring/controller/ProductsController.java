@@ -1,7 +1,9 @@
 package com.example.myFirstSpring.controller;
 
 import com.example.myFirstSpring.entity.Cart;
+import com.example.myFirstSpring.entity.Products;
 import com.example.myFirstSpring.entity.User;
+import com.example.myFirstSpring.model.ProductExpert;
 import com.example.myFirstSpring.response.ProductListResponse;
 import com.example.myFirstSpring.response.SystemMessage;
 import com.example.myFirstSpring.response.SystemResponse;
@@ -25,11 +27,15 @@ public class ProductsController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public SystemMessage buyout(
-            @RequestBody Cart cart
+            @RequestBody Cart cart,
+            Products products
     ){
         productService.saveCart(cart);
-
-        return new SystemMessage(true, productService.getRecommendation(cart.getProduct_name()));
+        String service = productService.getRecommendation(cart.getProduct_name());
+        System.out.println("arnold" + service);
+        products.giveRecommendation(service);
+        System.out.println("agura" + products.giveRecommendation(service));
+        return new SystemMessage(true, products.giveRecommendation(service));
     }
 
     @RequestMapping(value = "/productList",

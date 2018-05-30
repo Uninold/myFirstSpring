@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 public class HelloController {
     @Autowired
     private UserService userService;
-    private ProductService productService;
 
 //    @RequestMapping(value = "/sayhello")
 //    public String sayHello(

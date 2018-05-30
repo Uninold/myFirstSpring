@@ -60,4 +60,21 @@ public class Products {
     public void setPrice(double price) {
         this.price = price;
     }
+    public String giveRecommendation(String recommended){
+        System.out.println(recommended);
+        String service = "";
+        if(recommended.equalsIgnoreCase("Sangot"))
+        {
+            service = "Pahait Service";
+        }
+        else if(recommended.equalsIgnoreCase("Luthang"))
+        {
+            service = "Reload Holy Bullets Service";
+        }
+        else if(recommended.equalsIgnoreCase("Hanger ni Mama"))
+        {
+            service = "Armament Haki Hanger Service";
+        }
+        return service;
+    }
 }

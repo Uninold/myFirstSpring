@@ -21,6 +21,7 @@ public class ProductDAOImpl implements ProductDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+
     @Override
     public void saveCart(Cart cart) {
         Session currentSession = sessionFactory.getCurrentSession();
@@ -51,19 +52,8 @@ public class ProductDAOImpl implements ProductDAO {
         product.setString("product_name", product_name);
 //        Query theQuery = session.createQuery("from recommendation where id =:id");
 //        theQuery.setString(product., "id");
-        String recommendation = "";
-        if(product_name.equalsIgnoreCase("Sangot"))
-        {
-            recommendation = "Pahait Service";
-        }
-        else if(product_name.equalsIgnoreCase("Luthang"))
-        {
-            recommendation = "Reload Holy Bullets Service";
-        }
-        else if(product_name.equalsIgnoreCase("Hanger ni Mama"))
-        {
-            recommendation = "Armament Haki Hanger Service";
-        }
+        String recommendation = product_name;
+        System.out.println(product_name);
         return recommendation;
     }
 
